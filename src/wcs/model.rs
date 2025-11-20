@@ -1,11 +1,3 @@
-pub fn grrs(pattern: &str, content: &str) {
-    for line in content.lines() {
-        if line.contains(pattern) {
-            println!("{}", content);
-        }
-    }
-}
-
 pub fn wcs(content: &str) {
     let new_lines = content.lines().count();
     let mut word_count = 0;
@@ -15,5 +7,4 @@ pub fn wcs(content: &str) {
     }
 
     println!("new lines: {} word count: {}", new_lines, word_count);
-
 }
