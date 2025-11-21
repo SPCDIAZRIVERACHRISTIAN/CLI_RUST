@@ -1,10 +1,6 @@
-mod grrs;
-mod wcs;
-
 use anyhow::{Context, Result};
 use clap::Parser;
-use grrs::model::grrs;
-use wcs::model::wcs;
+
 
 /// Search for a pattern in a file and display the lines that contain it.
 #[derive(Parser)]
