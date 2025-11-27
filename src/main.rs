@@ -1,27 +1,21 @@
-use anyhow::{Context, Result};
+mod args;
+mod grrs;
+mod wcs;
+
 use clap::Parser;
+use crate::args::{Cli, Command};
 
+fn main() -> anyhow::Result<()> {
+    let cli = Cli::parse();
 
-/// Search for a pattern in a file and display the lines that contain it.
-#[derive(Parser)]
-struct Cli {
-    /// The pattern to look for
-    pattern: String,
-    /// The path to the file to read
-    path: std::path::PathBuf,
-}
+    match cli.command {
+        Command::Grrs(cmd) => {
+            grrs::run(&cmd.pattern, &cmd.path)?
+        }
 
-fn main() -> Result<()> {
-    let args = Cli::parse();
-
-    let content = std::fs::read_to_string(&args.path)
-        .with_context(|| format!("could not read file `{}`", args.path.display()))?;
-    
-    if &args.pattern == "wcs" {
-        wcs(&content);
-    } else {
-        grrs(&args.pattern, &content);
+        Command::Wcs(cmd) => {
+            wcs::run(&cmd.path)?;
+        }
     }
-
     Ok(())
 }
