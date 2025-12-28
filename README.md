@@ -52,3 +52,22 @@ Arguments:
 | Argument | Description         |
 | -------- | ------------------- |
 | `<file>` | The file to analyze |
+
+---
+
+## CLI V1
+
+It finally works! It can use better error handling and
+more features than just the one it has but I dont care it served its purpose.
+the only thing you need to do to make it work in your machine is git clone the
+project
+```bash
+cargo install --path .
+```
+
+and boom you have one command with two subcommands
+made with rust.
+If you have any questions or doubts feel free to ask google
+or the AI of your preference because this is not meant to be
+useful in any way it was just made to learn rust.
+Thank you.
